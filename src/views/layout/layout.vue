@@ -5,7 +5,10 @@
         <Menus />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
+        <el-header>
+          <Header />
+          <tags />
+        </el-header>
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -15,7 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import Menus from "@/components/menus/menus.vue";
+import Menus from "./menus/menus.vue";
+import Header from "./Header.vue";
+import tags from "./tags.vue";
 </script>
 
 <style lang="scss">
@@ -26,7 +31,8 @@ import Menus from "@/components/menus/menus.vue";
     width: 100%;
     height: 100%;
     .el-header {
-      background-color: burlywood;
+      height: 80px;
+      padding: 0;
     }
   }
 }

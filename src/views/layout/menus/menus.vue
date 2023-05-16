@@ -35,6 +35,10 @@
 
 <script lang="ts" setup>
 import { menuList } from "@/menu";
+
+import { ref } from "vue";
+
+const menus = ref([]);
 </script>
 
 <style lang="scss">

@@ -16,6 +16,14 @@ module.exports = defineConfig({
     ]
   },
   devServer: {
-    proxy: "http://120.48.48.64:8096/api/user"
+    proxy: {
+      "/dev-api": {
+        target: "http://120.48.48.64:8096/api",
+        changeOrigin: true,
+        pathRewrite: {
+          "^/dev-api": ""
+        }
+      }
+    }
   }
 });

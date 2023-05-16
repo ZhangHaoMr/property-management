@@ -3,16 +3,16 @@ import Request from "@/service/request";
 // import LocalCache from "@/utils/cache";
 
 export const service = new Request({
-  baseURL: "",
+  baseURL: "/dev-api",
   timeout: 5000,
   interceptors: {
     requestInterceptor: (config) => {
       const token =
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ5YW5nbXIiLCJ1c2VyVHlwZSI6IjEiLCJleHAiOjE2ODQxNjAyNzAsImlhdCI6MTY4NDE1ODQ3MDU3OX0.tcMDYON587tT7Dm7tGXsWmpUZSnBbSDAw4s9JjUxLbw9OCffxrM-J29xH8V3-5dvnGi7OM9-_gJbcFwh_oOhxg";
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJUeXBlIjoiMSIsImV4cCI6MTY4NDI0NDM1MywiaWF0IjoxNjg0MjQyNTUzNTE5fQ.X1Y3GhqgWaWOPOFJ7g8U_2P8-ScnmL7RglyHc-qQinj2Y4mxGjnlG80VCw924k_535wfkEqd9uLp1lqa5JRDPQ";
       // console.log("token", token);
 
       // console.log("局部请求成功拦截器");
-      if (token) config.headers.token = token;
+      if (token) config.headers.Token = token;
       return config;
     },
     requestInterceptorCatch: (error) => {

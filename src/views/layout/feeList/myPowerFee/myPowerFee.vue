@@ -1,18 +1,31 @@
 <template>
   <div class="mypowerfee">
-    <h2>mypowerfee</h2>
+    <tab :propList="propList" :form="form" url="/feeWater">
+      <template #payWaterStatus="scope">
+        <el-tag v-if="scope.row.payWaterStatus == 1" type="success">
+          已缴费
+        </el-tag>
+        <el-tag v-if="scope.row.payWaterStatus == 0" type="danger">
+          未缴费
+        </el-tag>
+      </template>
+      <template #button="scope">
+        <el-button icon="EditPen" type="primary">编辑</el-button>
+        <el-button icon="Delete" type="danger">删除</el-button>
+        <el-button
+          v-if="scope.row.payWaterStatus == 0"
+          icon="Delete"
+          type="warning"
+          >缴费</el-button
+        >
+      </template>
+    </tab>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "myPowerFee",
-  setup() {
-    return {};
-  }
-});
+<script lang="ts" setup>
+import { propList, form } from "./config/table-content";
+import tab from "@/baseUI/table";
 </script>
 
 <style scoped></style>

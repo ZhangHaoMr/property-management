@@ -121,7 +121,7 @@ const routes: Array<RouteRecordRaw> = [
       },
       {
         path: "/noticeList",
-        name: "myParkFee",
+        name: "noticeList",
         component: () =>
           import("@/views/layout/notice/noticeList/noticeList.vue")
       }

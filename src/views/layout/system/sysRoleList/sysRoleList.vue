@@ -1,18 +1,21 @@
 <template>
   <div class="sysrolelist">
-    <h2>sysrolelist</h2>
+    <fo v-bind="formConfig" :formItem="form"></fo>
+    <tab :propList="propList" :form="form" url="/role">
+      <template #button>
+        <el-button type="primary" icon="EditPen">编辑</el-button>
+        <el-button type="success" icon="EditPen">分配权限</el-button>
+        <el-button type="danger" icon="Delete">删除</el-button>
+      </template>
+    </tab>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "sysRoleList",
-  setup() {
-    return {};
-  }
-});
+<script lang="ts" setup>
+import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
+import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

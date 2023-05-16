@@ -1,6 +1,8 @@
 <template>
   <div class="sysuserlist">
-    <tableContent :propList="propList">
+    <fo v-bind="formConfig" :formItem="form"> </fo>
+
+    <tab :propList="propList" :form="form" url="/user">
       <template #sex="scope">
         <el-tag :type="scope.row.sex == 1 ? '' : 'success'">
           {{ scope.row.sex == 1 ? "男" : "女" }}
@@ -9,7 +11,6 @@
       <template #isAdmin="scope">
         <el-switch
           v-model="scope.row.isAdmin"
-          class="mb-2"
           active-text="是"
           inactive-text="否"
           active-value="0"
@@ -19,7 +20,6 @@
       <template #authorities="scope">
         <el-switch
           v-model="scope.row.authorities"
-          class="mb-2"
           active-text="是"
           inactive-text="否"
           active-value="0"
@@ -31,13 +31,15 @@
         <el-button type="success" icon="EditPen">分配角色</el-button>
         <el-button type="danger" icon="Delete">删除</el-button>
       </template>
-    </tableContent>
+    </tab>
   </div>
 </template>
 
 <script lang="ts" setup>
-import tableContent from "@/baseUI/table";
-import { propList } from "./config/table-content";
+import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
+import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

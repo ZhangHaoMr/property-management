@@ -1,18 +1,30 @@
 <template>
-  <div class="sysmenulist">
-    <h2>sysmenulist</h2>
+  <div class="sysrolelist">
+    <fo v-bind="formConfig" :formItem="form">
+      <template #buttons>
+        <el-button icon="Plus" type="primary">新增</el-button>
+      </template>
+    </fo>
+
+    <tab :propList="propList" :form="form" url="/menu">
+      <template #menuType="scope">
+        <el-tag v-if="scope.row.type == 0">目录</el-tag>
+        <el-tag v-if="scope.row.type == 1" type="success"> 菜单 </el-tag>
+        <el-tag v-if="scope.row.type == 2" type="danger"> 按钮 </el-tag>
+      </template>
+      <template #button>
+        <el-button type="primary" icon="EditPen">编辑</el-button>
+        <el-button type="danger" icon="Delete">删除</el-button>
+      </template>
+    </tab>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "sysMenuList",
-  setup() {
-    return {};
-  }
-});
+<script lang="ts" setup>
+import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
+import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

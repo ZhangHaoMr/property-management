@@ -1,6 +1,9 @@
 import { service } from "@/service";
 
-export const getList = (data: any) =>
-  service.get({
-    url: "/list?loginName=&phone=&curentPage=1&pageSize=10&total=0"
+export const getList = (url: string, data: any) => {
+  return service.request({
+    url: `${url}/list`,
+    method: "GET",
+    params: data
   });
+};

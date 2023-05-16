@@ -1,5 +1,12 @@
 <template>
-  <el-table border :data="tableData" style="width: 100%">
+  <el-table
+    border
+    :data="tableData"
+    style="width: 100%"
+    row-key="menuId"
+    default-expand-all
+    height="460"
+  >
     <template v-for="item in propList" :key="item.id">
       <el-table-column v-bind="item">
         <template #default="scope">
@@ -11,7 +18,7 @@
     </template>
   </el-table>
   <el-pagination
-    :current-page="form.curentPage"
+    :current-page="form.currentPage"
     :page-size="form.pageSize"
     :page-sizes="[10, 20, 50, 100]"
     layout="total, sizes, prev, pager, next, jumper"
@@ -23,27 +30,27 @@
 import { getList } from "@/api/layout";
 import { defineProps, ref } from "vue";
 
-defineProps({
+const props = defineProps({
   propList: {
     type: Array,
+    required: true
+  },
+  url: {
+    type: String,
+    required: true
+  },
+  form: {
+    type: Object,
     required: true
   }
 });
 const tableData = ref([]);
-const form = ref({
-  loginName: "",
-  phone: "",
-  curentPage: 1,
-  pageSize: 10,
-  total: 0
-});
 
-getList(form.value).then((res) => {
+getList(props.url, props.form).then((res) => {
   console.log(res);
-  form.value.total = res.total;
-  form.value.pageSize = res.size;
-  form.value.curentPage = res.pages;
-  tableData.value = res.data.records;
+  if (res) {
+    tableData.value = res.data.records || res.data;
+  }
 });
 </script>
 
