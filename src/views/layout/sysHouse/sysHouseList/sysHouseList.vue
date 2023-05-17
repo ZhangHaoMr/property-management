@@ -1,5 +1,7 @@
 <template>
   <div class="sysrolelist">
+    <fo v-bind="formConfig" :formItem="form"> </fo>
+
     <tab :propList="propList" :form="form" url="/houseList">
       <template #statusName="scope">
         <el-tag v-if="scope.row.status == 0" type="success"> 未使用 </el-tag>
@@ -15,7 +17,9 @@
 
 <script lang="ts" setup>
 import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
 import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

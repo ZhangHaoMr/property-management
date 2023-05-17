@@ -1,5 +1,7 @@
 <template>
   <div class="myparkfee">
+    <fo v-bind="formConfig" :formItem="form"> </fo>
+
     <tab :propList="propList" :form="form" url="/feeWater">
       <template #payWaterStatus="scope">
         <el-tag v-if="scope.row.payWaterStatus == 1" type="success">
@@ -25,7 +27,9 @@
 
 <script lang="ts" setup>
 import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
 import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

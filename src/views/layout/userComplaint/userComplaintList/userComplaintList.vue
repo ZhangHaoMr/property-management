@@ -1,5 +1,7 @@
 <template>
   <div class="usercomplaintlist">
+    <fo v-bind="formConfig" :formItem="form"> </fo>
+
     <tab :propList="propList" :form="form" url="/userComplaint">
       <template #comStatus="scope">
         <el-tag v-if="scope.row.status == 1" type="success"> 已处理 </el-tag>
@@ -14,7 +16,9 @@
 
 <script lang="ts" setup>
 import { propList, form } from "./config/table-content";
+import { formConfig } from "./config/form-config";
 import tab from "@/baseUI/table";
+import fo from "@/baseUI/form";
 </script>
 
 <style scoped></style>

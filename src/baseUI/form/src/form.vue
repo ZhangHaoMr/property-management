@@ -9,7 +9,7 @@
     >
       <template v-for="item in formProps" :key="item.lable">
         <el-form-item v-if="item.options" :label="item.lable" prop="region">
-          <el-select v-model="formItem[item.prop]">
+          <el-select v-model="formItem[item.prop]" v-bind="item">
             <el-option
               v-for="opt in item.options"
               :key="opt.label"
@@ -33,9 +33,13 @@
       </el-form-item> -->
       <el-form-item>
         <slot name="buttons">
-          <el-button icon="Search">查询</el-button>
-          <el-button icon="Delete" style="color: red">重置</el-button>
-          <el-button icon="Plus" type="primary">新增</el-button>
+          <el-button v-if="showSearch" icon="Search">查询</el-button>
+          <el-button v-if="showDelete" :icon="deleteIcon" style="color: red">
+            重置
+          </el-button>
+          <el-button v-if="showPlus" icon="Plus" type="primary">
+            新增
+          </el-button>
         </slot>
       </el-form-item>
     </el-form>
@@ -58,6 +62,22 @@ defineProps({
   align: {
     type: String,
     default: ""
+  },
+  showSearch: {
+    type: Boolean,
+    default: true
+  },
+  showDelete: {
+    type: Boolean,
+    default: true
+  },
+  showPlus: {
+    type: Boolean,
+    default: true
+  },
+  deleteIcon: {
+    type: String,
+    default: "Close"
   }
 });
 </script>

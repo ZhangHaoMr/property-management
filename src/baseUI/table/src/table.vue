@@ -17,13 +17,22 @@
       </el-table-column>
     </template>
   </el-table>
+
   <el-pagination
+    v-model:current-page="currentPage"
+    v-model:page-size="pageSize"
+    :page-sizes="[10, 20, 50, 100]"
+    layout="total, sizes, prev, pager, next, jumper"
+    :total="form.total"
+  />
+
+  <!-- <el-pagination
     :current-page="form.currentPage"
     :page-size="form.pageSize"
     :page-sizes="[10, 20, 50, 100]"
     layout="total, sizes, prev, pager, next, jumper"
     :total="form.total"
-  />
+  /> -->
 </template>
 
 <script lang="ts" setup>
@@ -46,10 +55,17 @@ const props = defineProps({
 });
 const tableData = ref([]);
 
+const currentPage = ref(props.form.currentPage);
+const pageSize = ref(props.form.pageSize);
+const total = ref(props.form.total);
+
 getList(props.url, props.form).then((res) => {
   console.log(res);
   if (res) {
     tableData.value = res.data.records || res.data;
+    total.value = res.data.total;
+    pageSize.value = res.data.size;
+    currentPage.value = res.data.current;
   }
 });
 </script>

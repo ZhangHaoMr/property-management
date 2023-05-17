@@ -1,10 +1,6 @@
 <template>
   <div class="sysrolelist">
-    <fo v-bind="formConfig" :formItem="form">
-      <template #buttons>
-        <el-button icon="Plus" type="primary">新增</el-button>
-      </template>
-    </fo>
+    <fo v-bind="formConfig" :formItem="form"> </fo>
 
     <tab :propList="propList" :form="form" url="/menu">
       <template #menuType="scope">
