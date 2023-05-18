@@ -12,19 +12,23 @@ const form = ref({
 const propList = ref([
   {
     label: "车位名称",
-    prop: "parkName"
+    prop: "parkName",
+    type: "input"
   },
   {
     label: "车位类型",
-    prop: "parkType"
+    prop: "parkType",
+    type: "input"
   },
   {
     label: "使用状态",
-    prop: "parkStatus"
+    prop: "parkStatus",
+    type: "input"
   },
   {
     label: "序号",
-    prop: "parkNum"
+    prop: "parkNum",
+    type: "input"
   },
   {
     label: "操作",

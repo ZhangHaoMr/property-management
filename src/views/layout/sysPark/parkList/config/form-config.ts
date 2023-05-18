@@ -3,12 +3,14 @@ const formConfig = {
     {
       lable: "车位名称",
       prop: "parkName",
-      placeholder: ""
+      placeholder: "",
+      type: "input"
     },
     {
       lable: "车位类型",
       prop: "parkType",
       placeholder: "请选择",
+      type: "select",
       options: [
         {
           label: "地上",
@@ -24,6 +26,7 @@ const formConfig = {
       lable: "使用状态",
       prop: "parkStatus",
       placeholder: "请选择",
+      type: "select",
       options: [
         {
           label: "未使用",

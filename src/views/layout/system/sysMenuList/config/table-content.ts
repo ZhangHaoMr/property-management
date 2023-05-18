@@ -6,32 +6,39 @@ const propList = ref([
   {
     label: "菜单名称",
     prop: "menuLabel",
-    width: "200"
+    width: "200",
+    type: "input"
   },
   {
     label: "菜单类型",
     prop: "type",
-    slotName: "menuType"
+    slotName: "menuType",
+    type: "select"
   },
   {
     label: "菜单图标",
-    prop: "icon"
+    prop: "icon",
+    type: "input"
   },
   {
     label: "路由名称",
-    prop: "name"
+    prop: "name",
+    type: "input"
   },
   {
     label: "路由地址",
-    prop: "path"
+    prop: "path",
+    type: "input"
   },
   {
     label: "组件路径",
-    prop: "url"
+    prop: "url",
+    type: "input"
   },
   {
     label: "权限字段",
-    prop: "menuCode"
+    prop: "menuCode",
+    type: "input"
   },
   {
     label: "操作",

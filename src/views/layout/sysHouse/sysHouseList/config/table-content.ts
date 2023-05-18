@@ -30,7 +30,17 @@ const propList = ref([
   {
     label: "使用状态",
     prop: "status",
-    slotName: "statusName"
+    slotName: "statusName",
+    options: [
+      {
+        lable: "未使用",
+        value: "0"
+      },
+      {
+        lable: "已使用",
+        value: "1"
+      }
+    ]
   },
   {
     label: "操作",

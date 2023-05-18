@@ -11,33 +11,39 @@ const form = ref({
 const propList = ref([
   {
     label: "姓名",
-    prop: "loginName"
+    prop: "loginName",
+    type: "input"
   },
   {
     label: "电话",
-    prop: "phone"
+    prop: "phone",
+    type: "input"
   },
   {
     label: "身份证",
-    prop: "idCard"
+    prop: "idCard",
+    type: "input"
   },
   {
     label: "性别",
     prop: "sex",
     align: "center",
-    slotName: "sex"
+    slotName: "sex",
+    type: "input"
   },
   {
     label: "是否离职",
     prop: "isAdmin",
     align: "center",
-    slotName: "isAdmin"
+    slotName: "isAdmin",
+    type: "input"
   },
   {
     label: "是否启用",
     prop: "authorities",
     align: "center",
-    slotName: "authorities"
+    slotName: "authorities",
+    type: "input"
   },
   {
     label: "操作",

@@ -19,6 +19,7 @@ const formConfig = {
       lable: "使用状态",
       prop: "unitName",
       placeholder: "请选择",
+      type: "select",
       options: [
         {
           label: "未使用",

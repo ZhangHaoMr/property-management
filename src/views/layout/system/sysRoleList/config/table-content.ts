@@ -10,11 +10,13 @@ const form = ref({
 const propList = ref([
   {
     label: "角色名称",
-    prop: "roleName"
+    prop: "roleName",
+    type: "input"
   },
   {
     label: "备注",
-    prop: "remark"
+    prop: "remark",
+    type: "input"
   },
   {
     label: "操作",

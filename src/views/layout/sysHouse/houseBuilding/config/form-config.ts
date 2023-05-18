@@ -2,11 +2,13 @@ const formConfig = {
   formProps: [
     {
       lable: "栋数名称",
-      prop: "name"
+      prop: "name",
+      type: "input"
     },
     {
-      lable: "单元名称",
+      lable: "栋数类型",
       prop: "type",
+      type: "select",
       options: [
         {
           label: "普通房",

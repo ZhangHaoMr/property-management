@@ -2,11 +2,13 @@ const formConfig = {
   formProps: [
     {
       lable: "栋数名称:",
-      prop: "name"
+      prop: "name",
+      type: "input"
     },
     {
       lable: "单元名称:",
-      prop: "unitName"
+      prop: "unitName",
+      type: "input"
     }
   ]
 };

@@ -7,12 +7,16 @@
       :model="formData"
       class="demo-form-inline"
     >
-      <template v-for="item in formProps" :key="item.lable">
-        <el-form-item v-if="item.options" :label="item.lable" prop="region">
+      <template v-for="item in formProps" :key="item.label">
+        <el-form-item
+          v-if="item.type == 'select'"
+          :label="item.lable"
+          prop="region"
+        >
           <el-select v-model="formData[item.prop]" v-bind="item">
             <el-option
               v-for="opt in item.options"
-              :key="opt.label"
+              :key="opt.lable"
               v-bind="opt"
             />
           </el-select>
@@ -93,14 +97,16 @@ const formData = ref(formOrigin);
 console.log(formData.value);
 
 const Search = () => {
-  console.log("搜索");
+  // console.log("搜索");
+  console.log(formData.value);
+
   emit("search", formData.value);
 };
 
 const Close = () => {
   console.log("重置");
   for (const key in formOrigin) {
-    formData.value[key] = formOrigin[key];
+    formData.value[key] = "";
   }
 };
 

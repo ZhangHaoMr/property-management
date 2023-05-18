@@ -10,15 +10,18 @@ const form = ref({
 const propList = ref([
   {
     label: "标题",
-    prop: "title"
+    prop: "title",
+    type: "input"
   },
   {
     label: "内容",
-    prop: "noticeContent"
+    prop: "noticeContent",
+    type: "input"
   },
   {
     label: "时间",
-    prop: "createTime"
+    prop: "createTime",
+    type: "input"
   },
   {
     label: "操作",

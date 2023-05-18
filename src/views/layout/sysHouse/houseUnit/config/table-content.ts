@@ -13,11 +13,13 @@ const form = ref({
 const propList = ref([
   {
     label: "栋数名称",
-    prop: "name"
+    prop: "name",
+    type: "input"
   },
   {
     label: "单元名称",
-    prop: "unitName"
+    prop: "unitName",
+    type: "input"
   },
   {
     label: "操作",

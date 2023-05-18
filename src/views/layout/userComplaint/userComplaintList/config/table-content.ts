@@ -11,16 +11,19 @@ const form = ref({
 const propList = ref([
   {
     label: "标题",
-    prop: "title"
+    prop: "title",
+    type: "input"
   },
   {
     label: "内容",
-    prop: "complaintContent"
+    prop: "complaintContent",
+    type: "input"
   },
   {
     label: "处理状态",
     prop: "status",
-    slotName: "comStatus"
+    slotName: "comStatus",
+    type: "input"
   },
   {
     label: "操作",

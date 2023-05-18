@@ -11,20 +11,24 @@ const form = ref({
 const propList = ref([
   {
     label: "报修内容",
-    prop: "repairContent"
+    prop: "repairContent",
+    type: "input"
   },
   {
     label: "报修地址",
-    prop: "repairAddress"
+    prop: "repairAddress",
+    type: "input"
   },
   {
     label: "联系电话",
-    prop: "phone"
+    prop: "phone",
+    type: "input"
   },
   {
     label: "处理状态",
     prop: "status",
-    slotName: "comStatus"
+    slotName: "comStatus",
+    type: "select"
   },
   {
     label: "操作",

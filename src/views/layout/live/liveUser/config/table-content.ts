@@ -24,28 +24,34 @@ const propList = ref([
   },
   {
     label: "栋数",
-    prop: "name"
+    prop: "name",
+    type: "input"
   },
   {
     label: "单元",
-    prop: "unitName"
+    prop: "unitName",
+    type: "input"
   },
   {
     label: "房屋编号",
-    prop: "houseNum"
+    prop: "houseNum",
+    type: "input"
   },
   {
     label: "使用面积",
-    prop: "houseArea"
+    prop: "houseArea",
+    type: "input"
   },
   {
     label: "车位",
-    prop: "parkName"
+    prop: "parkName",
+    type: "input"
   },
   {
     label: "是否启用",
     prop: "useStatus",
-    slotName: "useStatus"
+    slotName: "useStatus",
+    type: "input"
   },
   {
     label: "操作",

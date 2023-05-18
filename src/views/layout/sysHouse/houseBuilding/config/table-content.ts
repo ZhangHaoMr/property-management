@@ -11,16 +11,29 @@ const form = ref({
 const propList = ref([
   {
     label: "栋数名称",
-    prop: "name"
+    prop: "name",
+    type: "input"
   },
   {
     label: "序号",
-    prop: "buildId"
+    prop: "buildId",
+    type: "input"
   },
   {
     label: "栋数类型",
     prop: "type",
-    slotName: "houseType"
+    slotName: "houseType",
+    type: "select",
+    options: [
+      {
+        lable: "普通房",
+        value: "0"
+      },
+      {
+        lable: "电梯房",
+        value: "1"
+      }
+    ]
   },
   {
     label: "操作",
