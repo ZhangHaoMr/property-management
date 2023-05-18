@@ -1,3 +1,4 @@
+<!-- eslint-disable no-undef -->
 <template>
   <el-table
     border
@@ -23,7 +24,8 @@
     v-model:page-size="pageSize"
     :page-sizes="[10, 20, 50, 100]"
     layout="total, sizes, prev, pager, next, jumper"
-    :total="form.total"
+    background
+    :total="total"
   />
 
   <!-- <el-pagination
@@ -59,15 +61,29 @@ const currentPage = ref(props.form.currentPage);
 const pageSize = ref(props.form.pageSize);
 const total = ref(props.form.total);
 
-getList(props.url, props.form).then((res) => {
-  console.log(res);
-  if (res) {
+console.log(props.form);
+
+const getTableList = async () => {
+  try {
+    const res: any = await getList(props.url, props.form);
     tableData.value = res.data.records || res.data;
     total.value = res.data.total;
     pageSize.value = res.data.size;
     currentPage.value = res.data.current;
+  } catch (e) {
+    console.log(e);
   }
+};
+getTableList();
+
+// eslint-disable-next-line no-undef
+defineExpose({
+  getTableList
 });
 </script>
 
-<style lang="scss"></style>
+<style lang="scss">
+.el-pagination {
+  margin-top: 10px;
+}
+</style>

@@ -1,8 +1,8 @@
 <template>
   <div class="sysuserlist">
-    <fo v-bind="formConfig" :formItem="form"> </fo>
+    <fo v-bind="formConfig" :formItem="form" @search="search"> </fo>
 
-    <tab :propList="propList" :form="form" url="/user">
+    <tab ref="configTab" :propList="propList" :form="form" url="/user">
       <template #sex="scope">
         <el-tag :type="scope.row.sex == 1 ? '' : 'success'">
           {{ scope.row.sex == 1 ? "男" : "女" }}
@@ -40,6 +40,18 @@ import { propList, form } from "./config/table-content";
 import { formConfig } from "./config/form-config";
 import tab from "@/baseUI/table";
 import fo from "@/baseUI/form";
+import { ref } from "vue";
+
+const configTab = ref();
+
+const search = (e: any) => {
+  // console.log(e);
+  for (const key in e) {
+    form.value[key] = e[key];
+  }
+  // console.log(form.value);
+  configTab.value.getTableList(form.value);
+};
 </script>
 
 <style scoped></style>
