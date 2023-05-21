@@ -11,25 +11,21 @@ const form = ref({
 const propList = ref([
   {
     label: "姓名",
-    prop: "loginName",
-    type: "input"
+    prop: "loginName"
   },
   {
     label: "电话",
-    prop: "phone",
-    type: "input"
+    prop: "phone"
   },
   {
     label: "身份证",
-    prop: "idCard",
-    type: "input"
+    prop: "idCard"
   },
   {
     label: "性别",
     prop: "sex",
     align: "center",
-    slotName: "sex",
-    type: "input"
+    slotName: "sex"
   },
   {
     label: "是否离职",

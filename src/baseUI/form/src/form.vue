@@ -21,6 +21,18 @@
             />
           </el-select>
         </el-form-item>
+        <el-form-item v-else-if="item.type == 'radio'" :label="item.lable">
+          <el-radio-group v-model="formData[item.prop]" class="ml-4">
+            <el-radio
+              v-for="(ite, ind) in item.options"
+              :key="ind"
+              :value="ite.value"
+              :label="ite.lable"
+            >
+              {{ ite.lable }}
+            </el-radio>
+          </el-radio-group>
+        </el-form-item>
         <el-form-item v-else :label="item.lable">
           <el-input
             v-model="formData[item.prop]"
@@ -50,11 +62,15 @@
 
 <script setup lang="ts">
 import { formConfig } from "@/views/layout/fee/feePark/config/form-config";
-import { defineProps, ref, defineEmits } from "vue";
+import { defineProps, ref, defineEmits, watch, defineExpose } from "vue";
+import { addList } from "@/api/layout";
 const props = defineProps({
   formItem: {
     type: Object,
     redirect: true
+  },
+  modelValue: {
+    type: Object
   },
   formProps: {
     type: Array,
@@ -84,39 +100,79 @@ const props = defineProps({
   }
 });
 
-const emit = defineEmits(["search"]);
+const emit = defineEmits(["update:modelValue", "search", "Plus", "add"]);
 
 const formItems = props?.formProps?.filter((item: any) => item.prop);
-console.log(formItems);
+// console.log(formItems);
 const formOrigin: any = {};
 for (const key of formItems) {
   formOrigin[key.prop] = "";
 }
 
-const formData = ref(formOrigin);
-console.log(formData.value);
+const formData = ref({ ...props.modelValue });
+// console.log(formData.value);
 
+watch(
+  () => props.modelValue,
+  (newVal: any) => {
+    console.log("newVal", newVal);
+    emit("update:modelValue", newVal);
+  }
+);
+
+// 搜索
 const Search = () => {
-  // console.log("搜索");
-  console.log(formData.value);
-
   emit("search", formData.value);
 };
 
+// 重置
 const Close = () => {
-  console.log("重置");
   for (const key in formOrigin) {
     formData.value[key] = "";
   }
 };
 
+// 添加
 const Plus = () => {
-  alert("添加");
+  // alert("添加");
+  emit("Plus");
 };
+
+const add = (url: string) => {
+  try {
+    for (const key in formOrigin) {
+      if (formData.value[key] !== "") {
+        const res = addList(url, formData.value);
+        console.log(res);
+        Close();
+        Search();
+      }
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+defineExpose({
+  add
+});
 </script>
 
 <style lang="scss">
 .form {
   width: 100%;
+}
+.el-form-item asterisk-left {
+  margin-right: 0px !important;
+}
+.el-form--inline .el-form-item {
+  margin-right: 5px !important;
+}
+.el-form-item__label {
+  font-weight: 800;
+  color: #606266;
+}
+.el-form-item__label {
+  width: 80px;
 }
 </style>

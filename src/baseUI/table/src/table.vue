@@ -61,7 +61,7 @@ const currentPage = ref(props.form.currentPage);
 const pageSize = ref(props.form.pageSize);
 const total = ref(props.form.total);
 
-console.log(props.form);
+// console.log(props.form);
 
 const getTableList = async () => {
   try {

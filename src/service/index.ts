@@ -8,7 +8,7 @@ export const service = new Request({
   interceptors: {
     requestInterceptor: (config) => {
       const token =
-        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJUeXBlIjoiMSIsImV4cCI6MTY4NDQwNzMwMywiaWF0IjoxNjg0NDA1NTAzMDE2fQ.I8mkdsmGLNwALCM6P4PAhvFdoQag4cwiGh1tl2YOEPhoc3mnBdzeKiIVaYhpERsrUoTJ7F8z_4VQijY3VWNpLw";
+        "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJUeXBlIjoiMSIsImV4cCI6MTY4NDQ5ODU3OCwiaWF0IjoxNjg0NDk2Nzc4MDY0fQ.Lqh5RJ2YvjiQJuxpG26mZhuoSSx-2nrgzWVlt6_Hgtr_mdBjfMKn8MFZtFkXlVIZaAGPimVTbvtAxdf4CeSLOQ";
       // console.log("token", token);
 
       // console.log("局部请求成功拦截器");
