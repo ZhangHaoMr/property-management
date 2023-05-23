@@ -128,6 +128,11 @@ const routes: Array<RouteRecordRaw> = [
     ]
   },
   {
+    path: "/login",
+    name: "login",
+    component: () => import("@/views/Login.vue")
+  },
+  {
     path: "/:pathMatch(.*)*",
     name: "404",
     component: () => import("@/views/404.vue")
@@ -137,6 +142,23 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    if (to.path === "/login") {
+      next("/");
+    } else {
+      next();
+    }
+  } else {
+    if (to.path === "/login") {
+      next();
+    } else {
+      next("/login");
+    }
+  }
 });
 
 export default router;

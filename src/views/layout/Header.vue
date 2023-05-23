@@ -18,14 +18,29 @@
         </el-icon>
       </span>
       <template #dropdown>
-        <el-dropdown-menu>
-          <el-dropdown-item divided>重置密码</el-dropdown-item>
-          <el-dropdown-item divided>退出登录</el-dropdown-item>
+        <el-dropdown-menu @command="handleCommand">
+          <el-dropdown-item divided command="重置密码">
+            重置密码
+          </el-dropdown-item>
+          <el-dropdown-item divided command="退出登录">
+            退出登录
+          </el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
   </div>
 </template>
+
+<script lang="ts" setup>
+import router from "@/router";
+
+const handleCommand = (e: string) => {
+  if (e == "退出登录") {
+    localStorage.clear();
+    router.push("/login");
+  }
+};
+</script>
 
 <style lang="scss">
 .Header {

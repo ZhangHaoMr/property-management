@@ -17,3 +17,12 @@ export const addList = (url: string, data: any) => {
     data
   });
 };
+
+// 登录接口
+export const Login = (data: any) => {
+  return service.request({
+    url: "user/login",
+    method: "POST",
+    data
+  });
+};
